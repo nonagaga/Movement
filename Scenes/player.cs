@@ -3,6 +3,9 @@ using System;
 
 public partial class player : CharacterBody2D
 {
+    [Export]
+    public string PlayerIndex = "0";
+
     // exports
     [Export]
     public float FallStunVelocityMin = 600f;
@@ -58,7 +61,7 @@ public partial class player : CharacterBody2D
 
         // Get the input direction and handle the movement/deceleration.
         // As good practice, you should replace UI actions with custom gameplay actions.
-        Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+        Vector2 direction = Input.GetVector("move_left" + PlayerIndex, "move_right" + PlayerIndex, "move_up" + PlayerIndex, "move_down" + PlayerIndex);
         //if inputting direction
         if (direction != Vector2.Zero)
         {
@@ -140,7 +143,7 @@ public partial class player : CharacterBody2D
             }
 
             //if we press jump...
-            if (Input.IsActionJustPressed("jump"))
+            if (Input.IsActionJustPressed("jump" + PlayerIndex))
             {
                 //duh
                 velocity = Jump();
@@ -152,7 +155,7 @@ public partial class player : CharacterBody2D
             //that's one more frame off the ground.
             framesSinceGround++;
 
-            if (Input.IsActionJustPressed("jump"))
+            if (Input.IsActionJustPressed("jump" + PlayerIndex))
             {
                 //if we're within the coyote window...
                 if (framesSinceGround < CoyoteFrames)
@@ -168,7 +171,7 @@ public partial class player : CharacterBody2D
         }
 
         //if we've released jump for any reason...
-        if (Input.IsActionJustReleased("jump"))
+        if (Input.IsActionJustReleased("jump" + PlayerIndex))
         {
             gravity = DownwardsGravity;
         }
