@@ -1,0 +1,27 @@
+mech starts off slow, and then accelerates to a top speed
+rocket boosters that raise you up at constant velocity
+long distance jump when at full speed
+superhero landing ofc
+use fuel for rocket boosters for the upwards gravity reduction modifier
+
+platformer where you can build your mech for different specs
+speed
+acceleration
+fuel (high jump)
+jump power
+
+what if you had the ability to throw the pilot out? leaves you vulnerable, but maybe access to different weaponry/secret areas?
+
+upgrades
+hydromagnetic shock dispersers
+- reduces the movement penalty from a rough landing by 50%
+
+superalloy chassis
+- lightweight chassis increases acceleration, fuel, and jump power
+
+spikey shoes
+- landing on enemies does damage, scaled with your downwards velocity
+
+toroidal magnetic couplings
+- increases speed
+
