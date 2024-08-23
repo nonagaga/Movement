@@ -1,5 +1,6 @@
 #Ignore visual studio stuff
 .vs/
+.Properties/
 
 # Godot 4+ specific ignores
 .godot/
