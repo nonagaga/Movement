@@ -79,8 +79,4 @@ drag_vertical_enabled = true
 drag_top_margin = 0.3
 drag_bottom_margin = 0.3
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn")
-spawn_limit = 2
-
 [node name="Node2D" type="Node2D" parent="."]

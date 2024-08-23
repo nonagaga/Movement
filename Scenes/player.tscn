@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/player.cs" id="1_43118"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnps7"]
+bg_color = Color(0.2, 1, 0, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aoqm8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wynnd"]
@@ -12,18 +15,33 @@ gravity = Vector3(0, 0, 0)
 scale_min = 5.0
 scale_max = 5.0
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2v1mk"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
+collision_layer = 2
 script = ExtResource("1_43118")
 GroundAcceleration = 10.0
 UpwardsGravity = 980.0
 DownwardsGravity = 1960.0
 CoyoteFrames = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GPUParticles2D")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_bnps7")
+max_value = 0.0
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_aoqm8")
@@ -35,9 +53,3 @@ polygon = PackedVector2Array(10, -6, 10, 0, 10, 6, 9, 10, 6, 13, 2, 15, -1, 15, 
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_wynnd")
 fixed_fps = 60
-
-[node name="StunTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_2v1mk")
