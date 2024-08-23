@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdhx4mt2burma"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhx4mt2burma"]
 
 [ext_resource type="Script" path="res://Scenes/player.cs" id="1_43118"]
 
@@ -12,7 +12,13 @@ gravity = Vector3(0, 0, 0)
 scale_min = 5.0
 scale_max = 5.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2v1mk"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Player" type="CharacterBody2D"]
+physics_interpolation_mode = 1
 script = ExtResource("1_43118")
 GroundAcceleration = 10.0
 UpwardsGravity = 980.0
@@ -32,3 +38,6 @@ fixed_fps = 60
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_2v1mk")

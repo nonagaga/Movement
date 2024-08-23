@@ -10,6 +10,9 @@ public partial class Menu : Control
 	public Button JoinButton;
 
     [Export]
+    public Button StartButton;
+
+    [Export]
     public TextEdit TextEdit;
 
     private Lobby Lobby;
@@ -20,7 +23,14 @@ public partial class Menu : Control
         Lobby = GetNode<Lobby>("/root/Lobby");
         HostButton.Pressed += OnHostButtonPressed;
         JoinButton.Pressed += OnJoinButtonPressed;
+        StartButton.Pressed += OnStartButtonPressed;
 	}
+
+    private void OnStartButtonPressed()
+    {
+        Lobby.Rpc("StartGame");
+        QueueFree();
+    }
 
     private void OnJoinButtonPressed()
     {

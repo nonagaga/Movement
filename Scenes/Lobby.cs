@@ -145,5 +145,12 @@ public partial class Lobby : Node
         EmitSignal(nameof(PlayerDisconnected), id);
     }
 
+    [Rpc(RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+    private void StartGame()
+    {
+        var scene = ResourceLoader.Load<PackedScene>("res://Scenes/game.tscn").Instantiate<Node2D>();
+        GetTree().Root.AddChild(scene);
+    }
+
 
 }

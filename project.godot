@@ -13,6 +13,7 @@ config_version=5
 config/name="Fighter"
 run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,6 +24,7 @@ Lobby="*res://Scenes/Lobby.cs"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/stretch/mode="viewport"
 
 [dotnet]
 

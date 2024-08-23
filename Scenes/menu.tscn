@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Menu.cs" id="1_djmny"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("HostButton", "JoinButton", "TextEdit")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("HostButton", "JoinButton", "StartButton", "TextEdit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_djmny")
 HostButton = NodePath("HBoxContainer/HostButton")
 JoinButton = NodePath("HBoxContainer/JoinButton")
+StartButton = NodePath("HBoxContainer/StartButton")
 TextEdit = NodePath("HBoxContainer/TextEdit")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -28,6 +29,10 @@ text = "Host"
 [node name="JoinButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Join"
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Start Game"
 
 [node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
 layout_mode = 2
